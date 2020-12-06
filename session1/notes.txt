@@ -1,0 +1,10 @@
+accounts 
+
+account => name, accountNum , balance
+
+        => withdraw , add cash
+
+
+add new account 
+
+customers ==>  [{ }]
