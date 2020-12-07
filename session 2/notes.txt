@@ -1,0 +1,18 @@
+sba7 el 5er task:
+6 teams 
+4 function 
+1- add teams points
+2- get winner
+3- get loser
+4- get points average  (total/6)
+
+- variables done
+- operator  math logical ternery unray ...... done
+- cond state switch, if else done
+- loops => for, while 
+- arrays done + arrays loop methods (foreach filter index sort ....) done
+- functions done
+- object done
+
+
+get keyword  => get length ==> set num of trial length+2
