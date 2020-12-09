@@ -44,22 +44,29 @@ const newElement = function(eleType, eleContent, eleClasses, eleContentType='txt
 }
 const displayTasks = function(){
     document.querySelector('#tasks div').textContent=""
-    tasks.forEach( (task, i) => {
-        const bgColor = task.status ? 'bg-warning':'bg-success'
-        const article = newElement('article','',[bgColor, 'p-3', 'col-md-3', 'col-12', 'my-4', 'text-white'])
-        const p = newElement('p', task.taskContent, [])
-        const h2 = newElement('h2', task.taskTitle, ['h4'])
-        const btnDel = newElement('button', 'delete', ['btn', 'btn-danger'])
-        const btnEdit = newElement('button', 'Edit', ['btn','btn-info'])
-        //btnEdit.addEventListener('click',function(e){console.log(i)})
-        article.appendChild(h2)
-        article.appendChild(p)
-        article.appendChild(btnDel)
-        article.appendChild(btnEdit)
-        //article.innerHTML = (h2.outerHTML + p.outerHTML + btnEdit.outerHTML + btnDel.outerHTML)
-        document.querySelector('#tasks div').appendChild(article)
-        editTask(btnEdit, i)
-    });
+    if(tasks.length==0){
+        div = newElement('article','No Data Found',['col-12'])
+        document.querySelector('#tasks div').appendChild(div)
+        return
+    }
+        tasks.forEach( (task, i) => {
+            const bgColor = task.status ? 'bg-warning':'bg-success'
+            const article = newElement('article','',[bgColor, 'p-3', 'col-md-3', 'col-12', 'my-4', 'text-white'])
+            const p = newElement('p', task.taskContent, [])
+            const h2 = newElement('h2', task.taskTitle, ['h4'])
+            const btnDel = newElement('button', 'delete', ['btn', 'btn-danger'])
+            const btnEdit = newElement('button', 'Edit', ['btn','btn-info'])
+            //btnEdit.addEventListener('click',function(e){console.log(i)})
+            article.appendChild(h2)
+            article.appendChild(p)
+            article.appendChild(btnDel)
+            article.appendChild(btnEdit)
+            //article.innerHTML = (h2.outerHTML + p.outerHTML + btnEdit.outerHTML + btnDel.outerHTML)
+            document.querySelector('#tasks div').appendChild(article)
+            editTask(btnEdit, i)
+            delTask(btnDel, i)
+    
+        });
 
 }
 editTask = function(btn, i){
@@ -69,6 +76,12 @@ editTask = function(btn, i){
         displayTasks()
     })
 }
+delTask = function(btn, i){
+    btn.addEventListener('click', function(e){
+        tasks.splice(i,1)
+        localStorage.setItem('tasks',JSON.stringify(tasks))
+        displayTasks()
 
-
+    })
+}
 displayTasks()
