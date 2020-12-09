@@ -1,0 +1,6 @@
+****** todo list ******
+ - task => title, content , status default false
+ - tasks ==> show --> completed bg green  - incomp. bg red
+ - form ==> add task
+ - delete task
+ -  edit task status
