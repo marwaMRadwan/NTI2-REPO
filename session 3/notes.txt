@@ -4,3 +4,17 @@
  - form ==> add task
  - delete task
  -  edit task status
+
+
+
+ customer => id, name , balance
+ id =>  1  start 500300200
+
+ add customer , delete cust, show , balance (add, withdraw)
+
+ withdraw balance> amount
+
+ live search
+
+
+ table

@@ -1,0 +1,40 @@
+arrow function
+clousuers
+async - await
+promises
+
+oop
+ - class
+ - constr
+ - this
+ - inhertance 
+
+///////
+person -> name, phone, address --- show me account, change acc data
+customer -> child of person , balance , add balance, with
+emp -> child of person , salary, show customer, edit c b
+
+
+
+          2 s
+         5 s
+         1s
+         3s 
+
+get data api => 4s 
+console.log(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
