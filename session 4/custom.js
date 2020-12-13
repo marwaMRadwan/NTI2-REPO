@@ -145,7 +145,7 @@
 
 
 
-fetch('https://jsonplaceholder.typicode.com/todos',{}).then(
+fetch('http://newsapi.org/v2/everything?q=bitcoin&from=2020-11-13&sortBy=publishedAt&apiKey=702e9ad75b684b2ba13de7a0b5cf6ba3',{}).then(
     res=>{
     if(res.status == 200){
         return res.json()

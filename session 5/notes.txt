@@ -1,0 +1,13 @@
+any ===>  primtive ===>  string, number => enum, Bigint, boolean, symbol
+    ===> union 
+    ===> intersections
+    ===> objects class interface fun   constructor  array =>tuple
+
+
+    void
+    null
+    undefined
+
+
+    person 
+    emp basic sal   teacher  => num of wh * 10
