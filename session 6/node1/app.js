@@ -15,6 +15,7 @@
 /*
 add task - edit task - delete task - show
 */
+//node app.js add --taskTitle=marwa 
 tasks = []
 const yargs = require('yargs')
 yargs.command({
@@ -38,9 +39,6 @@ yargs.command({
             })
     }
 })
-
-
-
 yargs.parse()
 
 console.log(tasks)
