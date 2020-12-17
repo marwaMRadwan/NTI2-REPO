@@ -1,0 +1,20 @@
+{{>header}}
+
+{{>navbarFile}}
+<section id="allProducts" class="container">
+<div class="row">
+{{#each data}}
+<div class="card col-4">
+  <img src="https://backtest.achilleseg.com/{{this.default_images}}" class="card-img-top img-fluid">
+  <div class="card-body">
+    <h5 class="card-title">{{this.products_name}}</h5>
+    <p class="card-text"><del>{{this.products_price}}</del>  - {{this.product_price_discount}}% - {{this.final}}</p>
+    <a href="/{{this.products_id}}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{{/each}}
+</div>
+</section>
+
+{{>footer}}
+
