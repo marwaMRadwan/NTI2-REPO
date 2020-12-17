@@ -1,8 +1,26 @@
-<div class="card col-4">
-  <img src="https://backtest.achilleseg.com/{{data.default_images}}" class="card-img-top img-fluid">
-  <div class="card-body">
-    <h5 class="card-title">{{data.products_name}}</h5>
-    <p class="card-text"><del>{{data.products_price}}</del>  - {{data.product_price_discount}}% - {{data.final}}</p>
-    <a href="/{{data.products_id}}" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+{{>header}}
+{{>navbarFile}}
+<section id="single-pro" class="container">
+    <div class="row">
+        <article class="col-4">
+            <img src="https://backtest.achilleseg.com/{{data.default_images}}" class="card-img-top img-fluid">
+        </article>
+        <article class="col-6 py-5">
+            <h5 class="card-title">{{data.products_name}}</h5>
+            <p class="card-text"><del>{{data.products_price}}</del> - {{data.product_price_discount}}% - {{data.final}}
+            </p>
+            <div>{{{data.products_description}}}</div>
+            <div>
+                <h3>Attributes</h3>
+                {{#each data.attributes}}
+                    <h4 class="my-2 py-3">{{this.option.name}}</h4>
+                    {{#each this.values}}
+                        <span class="bg-danger text-white p-2" title="{{this.quantity.stock}} available">{{this.value}}</span>
+                    {{/each}}
+                {{/each}}
+            </div>
+        </article>
+    </div>
+</section>
+
+{{footer}}
