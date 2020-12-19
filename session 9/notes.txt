@@ -1,0 +1,17 @@
+/*
+no sql  => No structred query lang
+table  => collection
+record , field => *** document
+users
+{
+    "name":"marwa",
+    "learning":{
+        "collage":"cs"
+    }
+}
+{
+    "age":15
+}
+mongodb => no 
+mongoose => you can manage
+*/
