@@ -1,0 +1,4 @@
+doctor -> name, address, username, pass, spesialize, phone, whatsapp,status
+        => showall, showsingle, login,  register, disable
+paitent => name, username, pass, history, doctor id
+        => show data, login, register
