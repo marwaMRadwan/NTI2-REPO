@@ -1,7 +1,10 @@
 const validator = require('validator')
 const mongoose = require('mongoose')
+const Task=require('./tasks')
+const bcrypt = require('bcryptjs')
 
-const User = mongoose.model('User',{
+//const User = mongoose.model('User',{
+const UserSchema = new mongoose.Schema({
     name:{
         type:String,
         required: true,
@@ -20,6 +23,7 @@ const User = mongoose.model('User',{
         type:String,
         required: true,
         unique: true,
+        trim:true,
         lowercase: true,
         validate(value){
             if(!validator.isEmail(value)) throw new Error ('invalid email')
@@ -28,11 +32,10 @@ const User = mongoose.model('User',{
     pass:{
         type:String,
         minLength:6,
-        maxLength:20,
+        maxLength:100,
         trim:true ,
         validate(value){
             if(value.toLowerCase().includes('marwa')) throw new Error('invalid pass')
-            //MarWa Marwa MArwa MaRwa MarWa 
         }
     },
     status:{
@@ -42,5 +45,27 @@ const User = mongoose.model('User',{
         type:Date
     }
 })
-
+UserSchema.virtual('Task',{
+    ref:'Task', localField:'_id', foreignField:'owner'
+})
+UserSchema.methods.toJSON=function(){
+    const user = this
+    const userOBJ = user.toObject()
+    delete userOBJ.pass
+    return userOBJ
+}
+UserSchema.pre('save',async function(next){
+    const user = this
+    if(user.isModified('pass'))
+        user.pass = await bcrypt.hash(user.pass, 12)
+    next()
+})
+UserSchema.statics.findByCredentials = async function(email, pass){
+    const user= await User.findOne({ email })
+    if(!user) throw new Error('unauthorized')
+    const matched = await bcrypt.compare(pass, user.pass)
+    if(!matched) throw new Error('unauthorized')
+    return user    
+}
+const User = mongoose.model('User', UserSchema)
 module.exports = User

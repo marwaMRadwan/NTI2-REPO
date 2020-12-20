@@ -1,5 +1,4 @@
 const express = require('express')
-const { default: validator } = require('validator')
 const User = require('../models/user')
 const router = new express.Router()
 
@@ -138,6 +137,21 @@ router.delete('/user/:id', async(req,res)=>{
     }
 })
 
-
-
+router.post('/login', async(req,res)=>{
+    try{
+        const user = await User.findByCredentials(req.body.email, req.body.pass)
+        res.send({
+            status:1,
+            data:user,
+            msg:"logged in"
+        })
+    }
+    catch(e){
+        res.status(500).send({
+            status:0,
+            data:"",
+            msg:"err in data"
+        })
+    }
+})
 module.exports=router
