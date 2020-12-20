@@ -38,7 +38,9 @@ const User = mongoose.model('User',{
     status:{
         type: Boolean, default: true
     },
-    deadLine:{type:Date}
+    deadLine:{
+        type:Date
+    }
 })
 
 module.exports = User
