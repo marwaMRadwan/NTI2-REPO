@@ -38,7 +38,8 @@ router.get('/allUsers', auth, async (req,res)=>{
         res.status(200).send({
             status:1,
             data: users,
-            msg: 'all users selected'
+            msg: 'all users selected',
+            me: req.data
         })
     }
     catch(e){
@@ -47,6 +48,19 @@ router.get('/allUsers', auth, async (req,res)=>{
             data: e,
             msg: 'error loading users data'
         })
+    }
+})
+router.get('/profile', auth, async(req,res)=>{
+    try{
+        res.send({
+            data: req.data,
+            status:1
+        }
+        )
+
+    }
+    catch(e){
+
     }
 })
 
@@ -144,7 +158,7 @@ router.delete('/user/:id', async(req,res)=>{
 router.post('/login', async(req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email, req.body.pass)
-        const token = await data.generateToken()
+        const token = await user.generateToken()
         res.send({
             status:1,
             data:user,
