@@ -80,5 +80,11 @@ UserSchema.methods.generateToken = async function(){
     await user.save()
     return token
 }
+
+UserSchema.pre('remove',async function (next){
+    const user=this
+    await Task.deleteMany({owner: user._id})
+    next()
+})
 const User = mongoose.model('User', UserSchema)
 module.exports = User
