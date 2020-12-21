@@ -2,7 +2,7 @@ const validator = require('validator')
 const mongoose = require('mongoose')
 const Task=require('./tasks')
 const bcrypt = require('bcryptjs')
-
+const jwt = require('jsonwebtoken')
 //const User = mongoose.model('User',{
 const UserSchema = new mongoose.Schema({
     name:{
@@ -43,7 +43,12 @@ const UserSchema = new mongoose.Schema({
     },
     deadLine:{
         type:Date
+    },
+    tokens :[
+    { 
+        token:{ type:String}   
     }
+    ]
 })
 UserSchema.virtual('Task',{
     ref:'Task', localField:'_id', foreignField:'owner'
@@ -66,6 +71,14 @@ UserSchema.statics.findByCredentials = async function(email, pass){
     const matched = await bcrypt.compare(pass, user.pass)
     if(!matched) throw new Error('unauthorized')
     return user    
+}
+
+UserSchema.methods.generateToken = async function(){
+    const user = this
+    const token = jwt.sign({ _id: user._id.toString() }, 'AaAaBbBa');
+    user.tokens = user.tokens.concat({token})
+    await user.save()
+    return token
 }
 const User = mongoose.model('User', UserSchema)
 module.exports = User

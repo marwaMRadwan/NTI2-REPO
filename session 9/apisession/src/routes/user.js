@@ -1,22 +1,26 @@
 const express = require('express')
 const User = require('../models/user')
+const auth = require('../middleware/authorization')
 const router = new express.Router()
 
 router.post('/addUser', async(req, res) => {
     const data = new User(req.body)
     try{
         await data.save()
+        const token = await data.generateToken()
         res.status(200).send({
             status:1,
             data: data,
-            msg: 'data inserted'
+            msg: 'data inserted',
+            token: token
         })
     }
     catch(e){
         res.status(500).send({
             status:0,
             data:e,
-            msg:'error inserting data'
+            msg:'error inserting data',
+            token: ""
         })
     }
     // data.save()
@@ -28,7 +32,7 @@ router.post('/addUser', async(req, res) => {
     // )
 })
 
-router.get('/allUsers',async (req,res)=>{
+router.get('/allUsers', auth, async (req,res)=>{
     try{
         const users = await User.find({})
         res.status(200).send({
@@ -140,18 +144,31 @@ router.delete('/user/:id', async(req,res)=>{
 router.post('/login', async(req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email, req.body.pass)
+        const token = await data.generateToken()
         res.send({
             status:1,
             data:user,
-            msg:"logged in"
+            msg:"logged in",
+            token: token
         })
     }
     catch(e){
         res.status(500).send({
             status:0,
             data:"",
-            msg:"err in data"
+            msg:"err in data",
+            token:""
         })
     }
 })
+
+const z = async(req, res, next)=>{
+    console.log('hello')
+    next()
+}
+
+router.get('/test', z, async(req,res)=>{
+    res.send('ay klam')
+})
+
 module.exports=router
