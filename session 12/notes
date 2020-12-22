@@ -1,0 +1,9 @@
+user => register
+    => name, username, password, type, image, phone, token, create at
+doctor => specializa, user_id
+paitent => history, user_id
+
+login, register, logout, logoutAll, edit profile, deactivate, reset passd
+get reports
+
+set paitent history
