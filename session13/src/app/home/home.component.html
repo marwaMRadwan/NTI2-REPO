@@ -1,0 +1,11 @@
+<section class="container py-5">
+    <h1 class="text-center">
+        Colors
+    </h1>
+    <input class="form-control" placeholder="Enter your color"  (input)="filterColors($event)">
+</section>
+<section class="container py-5 row" >
+    <div class="col-2 p-3 m-2" *ngFor="let c of filtered" [style.backgroundColor]="c.value"> 
+        <div class="text-white">{{ c.color}}</div>
+    </div>
+</section>

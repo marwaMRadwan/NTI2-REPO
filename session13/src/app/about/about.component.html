@@ -1,0 +1,37 @@
+<section [innerHTML]="ourContent"></section>
+<section >
+    <h1>All Tasks</h1>
+</section>
+<section>
+    <input (input)="inputMe($event)">
+    <h3>{{ inputData }}</h3>
+</section>
+
+<section>
+    <h3>two way binding</h3>
+    <input [value]="twoWayData" (input)="twoWayData = $event.target.value">
+    <h3>{{ twoWayData }}</h3>
+</section>
+<section>
+    <h3> NG Model </h3>
+    <input [(ngModel)] = "ngModelData">
+    <h3>{{ ngModelData }}</h3>
+</section>
+<section>
+    <table class="table table-striped">
+        <tr>
+            <th [style.color]="c">#</th>
+            <th>Task Title</th>
+            <th>Task Content</th>
+            <th [attr.colspan]="2">col span</th>
+        </tr>
+        <tr *ngFor="let single of d">
+            <td>{{ single.id }}</td>
+            <td>{{ single.name }}</td>
+            <td>{{ single.content }}</td>
+            <td></td><td></td>
+        </tr>
+    </table>
+
+    <button (click)="clickMe()">run function</button>
+</section>
