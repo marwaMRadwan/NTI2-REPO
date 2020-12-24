@@ -50,7 +50,7 @@
         <div class="accordion-body">
             <section>
                 <input class="form-control" placeholder="month number" [(ngModel)]="monNum">
-                <div [ngSwitch]="((+monNum +9)%12)">
+                <div *ngIf="monNum!=0" [ngSwitch]="((+monNum +9)%12)">
                     <div *ngSwitchCase="1">monkey</div>
                     <div *ngSwitchCase="2">rooster</div>
                     <div *ngSwitchCase="3">dog</div>
@@ -83,9 +83,34 @@
                 <button class="btn btn-primary" (click)="changeStatus()">
                     {{status? 'hide':'show'}}
                 </button>
+
+                <!-- <input type="{{status?'password':'text'}}"> -->
+<div [hidden]="!status">jhhh</div>
             </section>
 
         </div>
       </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          ngIf else
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <button (click)="changeStatus()">toggle</button>
+          <p *ngIf="status; else myElse">
+            hello
+          </p>
+          <ng-template #myElse>
+            <p >
+              hello 2
+            </p>
+          </ng-template>
+          
+        </div>
+      </div>
+    </div>
+
   </div>
