@@ -1,16 +1,16 @@
-directives
-    -ngfor
-    -ngif
-    -ngswitch
-    -ngstyle
-    -ng class
+built in directives
+    -ngfor => done
+    -ngif =>  done
+    -ngswitch done
+    -ngstyle done
+    -ng class done
 
 pipes
-    -build in
+    -build in =>  done
 
 service
-    -injection from another server
+    -injection from another server first steps => done
 
 component communication
-    - input
+    - input done
     -output

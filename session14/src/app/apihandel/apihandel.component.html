@@ -1,0 +1,9 @@
+<div class="container py-3">{{c}}</div>
+
+<p>apihandel works!</p>
+<section class="container row">
+    <div *ngFor="let p of photos|slice:0:10" class="col-3">
+        <p>{{p.title}}</p>
+        <img [src]="p.url" class="img-fluid">
+    </div>
+</section>

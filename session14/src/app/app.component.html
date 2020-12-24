@@ -1,5 +1,24 @@
+<button (click)="addOne()">add</button>
+<app-apihandel [c]=x></app-apihandel>
+<!-- <section >
+  <h1> PIPES</h1>
+  <div>
+    <p>{{today | date:'short'}}</p>
+    <p>{{str|uppercase}}</p>
+  </div>
+  <tr  *ngFor="let task of todos|slice:20:30; let i=index">
+    <th scope="row">{{ i+1 }}</th>
+    <th>{{task.id}}</th>
+    <td>{{task.title}}</td>
+    <td>{{task.userId}}</td>
+    <td>{{task.completed}}</td>
+  </tr>
+{{x|number:'3.1-2'}}
+</section>
+
+<hr> -->
 <router-outlet></router-outlet>
-<div class="accordion container" id="accordionExample">
+<!-- <div class="accordion container" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -82,10 +101,10 @@
                 </p>
                 <button class="btn btn-primary" (click)="changeStatus()">
                     {{status? 'hide':'show'}}
-                </button>
+                </button> -->
 
                 <!-- <input type="{{status?'password':'text'}}"> -->
-<div [hidden]="!status">jhhh</div>
+<!-- <div [hidden]="!status">jhhh</div>
             </section>
 
         </div>
@@ -112,5 +131,11 @@
         </div>
       </div>
     </div>
+  </div> -->
+<!-- <section>
+  <div [ngClass]="{'x':true, 'y':false}"
+  [ngStyle]="{'font-size':'1rem', 'color':'blue'}"
+  ></div>
+</section> -->
 
-  </div>
+

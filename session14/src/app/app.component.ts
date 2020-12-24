@@ -6,6 +6,7 @@ import { Todo } from 'src/app/interfaces/todo'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  x = 0
   todos: Todo[]=[
     {
     userId: 1,
@@ -1210,8 +1211,13 @@ export class AppComponent {
     ]
   monNum:number = 0
   status = true
-
+    today = new Date()
+    str = "heLlo aLl"
+    //x = 21.325412563
   changeStatus(){
     this.status = !this.status
+  }
+  addOne(){
+    this.x++
   }
 }
