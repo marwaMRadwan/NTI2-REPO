@@ -1,0 +1,16 @@
+directives
+    -ngfor
+    -ngif
+    -ngswitch
+    -ngstyle
+    -ng class
+
+pipes
+    -build in
+
+service
+    -injection from another server
+
+component communication
+    - input
+    -output
