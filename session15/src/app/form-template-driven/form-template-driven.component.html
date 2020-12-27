@@ -1,8 +1,15 @@
 <form #myForm = "ngForm" (ngSubmit)="getData(myForm)">
-    <input type="text" name= "fname"  ngModel> <br><br>
+    <input type="text" name= "fname"  ngModel #fname="ngModel"> <br><br>
     <input type="email" name= "email" ngModel> <br><br>
     <input type="text" name= "address" ngModel> <br><br>
     <input type="radio" value="female" name="gender" ngModel> Female
     <input type="radio" value="male"  name="gender" ngModel> Male<br><br>
     <button type="submit">add</button>
 </form>
+<br>
+
+{{fname.value|json}}
+<br>
+{{myForm.valid}}<br>
+{{myForm.touched}}<br>
+{{myForm.submitted}}<br>

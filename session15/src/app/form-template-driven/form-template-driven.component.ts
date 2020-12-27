@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-template-driven.component.css']
 })
 export class FormTemplateDrivenComponent implements OnInit {
-
+data:any = ""
   constructor() { }
 
   ngOnInit(): void {
   }
 getData(obj){
 console.log(obj.value)
+this.data=obj
 }
 }

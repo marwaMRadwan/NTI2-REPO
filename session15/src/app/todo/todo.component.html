@@ -1,0 +1,29 @@
+<form #todo="ngForm" (ngSubmit)="addNewTask(todo.value)">
+    <input name="taskTitle" type="text" placeholder="Task Title" ngModel><br>
+    Status: <input name="taskStatus" type="checkbox" ngModel>
+    <br>
+    <select name="taskType" ngModel>
+        <option *ngFor= "let s of tasks_types" value="{{s}}">{{s}}</option>
+    </select>
+    <button>add task</button>
+</form>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>title</th>
+        <th>type</th>
+        <th>status</th>
+    </tr>
+    <ng-container *ngIf="todos.length>0; else nodata">
+    <tr *ngFor="let task of todos; let i=index">
+        <td>{{i}}</td>
+        <td>{{task.taskTitle}}</td>
+        <td>{{task.taskType}}</td>
+        <td>{{task.taskStatus}}</td>
+    </tr>
+    </ng-container>
+<ng-template #nodata>
+No Data Found
+</ng-template>
+</table>

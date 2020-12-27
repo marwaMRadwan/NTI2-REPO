@@ -3,3 +3,12 @@ custom directive
 custom pipe
 form
 routing
+
+
+task title
+task type => from list of type
+status checkbox
+
+array 
+
+table show array
