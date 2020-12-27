@@ -1,0 +1,21 @@
+<h1>register user</h1>
+
+<form #user = "ngForm" (ngSubmit)="register(user)">
+    
+    <input name="firstName" type="text" #firstName="ngModel" [(ngModel)]="userData.firstName" required minlength="15">
+    <div *ngIf="!firstName.valid && (firstName.dirty||firstName.touched)">
+        {{firstName.errors|json}}
+        not valid
+        </div>
+    <input name="lastName" type="text" [(ngModel)]="userData.lastName" required>
+    pass: <input name="password" type="text" [(ngModel)]="userData.password" minlength="8" type="password"><br>
+    repass: <input name="re_password" type="text" [(ngModel)]="userData.re_password" minlength="8" type="password">
+    <div *ngIf="userData.password!= userData.re_password">
+        invalid pass
+    </div>
+    <input name="phone" type="text" [(ngModel)]="userData.phone">
+    <input name="email" placeholder= "email" type="text" [(ngModel)]="userData.email" email>
+    <input name="gender" type="radio" value="1" [(ngModel)]="userData.gender"> male
+    <input name="gender" type="radio" value="2" [(ngModel)]="userData.gender"> female
+    <button [disabled]="user.invalid">Add User</button>
+</form>
