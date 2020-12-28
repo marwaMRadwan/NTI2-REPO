@@ -1,1 +1,26 @@
-<p>task-form works!</p>
+<section class="container border border-3 p-5 m-5 bodyH">
+    <form #add="ngForm" (ngSubmit)="type?addData(add):editData(add)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Task Title</label>
+          <input type="text" class="form-control" name="title" required [(ngModel)]="data.title">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Task Type</label>
+            <select class="form-control" name="type" [(ngModel)]="data.type" required>
+                <option value="type1">type 1</option>
+                <option value="type2">type 2</option>
+                <option value="type3">type 3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Task Status</label>
+            <input type="checkbox" name="status" value="false"  id="exampleInputPassword1" [(ngModel)]="data.status">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Task Content</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="content" required [(ngModel)]="data.content">
+        </div>
+
+        <button class="btn btn-primary">{{type?'add':'edit'}}</button>
+      </form>
+</section>
