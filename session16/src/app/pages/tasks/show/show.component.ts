@@ -13,5 +13,8 @@ export class ShowComponent implements OnInit {
   ngOnInit(): void {
     this.tasks = this._tasks.allTasks()
   }
-
+  deleteTask(index){
+    console.log(index)
+    this._tasks.deleteTask(index)
+  }
 }

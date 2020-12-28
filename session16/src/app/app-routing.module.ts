@@ -9,7 +9,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
   {path:"allTasks",component:ShowComponent},
-  {path:"editTask",component:EditComponent},
+  {path:"editTask/:id",component:EditComponent},
   {path:"addTask",component:AddComponent},
   {path:'404',component:Err404Component},
   {path:'**',redirectTo:'/404'}

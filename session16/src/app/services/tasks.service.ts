@@ -18,4 +18,13 @@ export class TasksService {
     this.Tasks.push(task)
     console.log(this.Tasks)
   }
+  getSingleTask(index){
+    return this.Tasks[index]
+  }
+  editTask(task, index){
+    this.Tasks[index] = task
+  }
+  deleteTask(index){
+    this.Tasks.splice(index,1)
+  }
 }

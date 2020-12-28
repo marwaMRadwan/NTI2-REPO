@@ -24,8 +24,10 @@
             <td><i [ngClass]="task.status?'fas fa-hand-peace':'fas fa-thumbs-down'"></i></td>
             <td>{{task.content}}</td>
             <td>
-                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-primary" routerLink="/editTask/{{i}}">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteTask(i)"><i class="fas fa-trash-alt"></i></button>
             </td>
           </tr>
           

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
   type = true
+  data = { title:"", content:"", type:"", status:false}
+
   constructor() { }
 
   ngOnInit(): void {

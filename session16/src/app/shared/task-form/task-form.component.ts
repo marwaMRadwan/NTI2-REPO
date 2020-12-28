@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
-import {Router} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
@@ -8,11 +8,15 @@ import {Router} from '@angular/router'
 })
 export class TaskFormComponent implements OnInit {
   @Input() type:boolean
-  data = { title:"", content:"", type:"", status:false}
-  constructor(private _task:TasksService, private router:Router) { }
+  @Input() data:any
+  constructor(private _task:TasksService, private router:Router, private _route:ActivatedRoute) { }
   ngOnInit(): void {
   }
-  editData(data){console.log('edit');}
+  editData(data){
+    console.log(this._route.snapshot.paramMap.get('id'))
+    this._task.editTask(data.value, this._route.snapshot.paramMap.get('id'))
+    this.router.navigateByUrl('allTasks')
+  }
   addData(data){
     if(data.valid){
       this._task.addTask(data.value)
