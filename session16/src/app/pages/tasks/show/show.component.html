@@ -1,0 +1,35 @@
+<section *ngIf="tasks.length<1; else tasksFound">
+    <div class="alert alert-danger" role="alert">
+        No Data Foune
+      </div>
+</section>
+<ng-template #tasksFound>
+<section class="container px-3">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">title</th>
+            <th scope="col">type</th>
+            <th scope="col">status</th>
+            <th scope="col">content</th>
+            <th scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks; let i=index">
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.type }}</td>
+            <td><i [ngClass]="task.status?'fas fa-hand-peace':'fas fa-thumbs-down'"></i></td>
+            <td>{{task.content}}</td>
+            <td>
+                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+</section>
+</ng-template>

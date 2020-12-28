@@ -1,0 +1,15 @@
+- welcome screen => login form
+- add task type
+- add new task => title , type, content, status
+- show tasks => 2 buttons edit, delete
+- edit task
+- delete task
+
+pages =>4 page => add, edit, show , welcome
+shared components => navbar, footer, taskform, login form
+services => user, tasks, global => addtask, add task type, get all tasks, get single task , login user, edit task, del task
+objects, arrays => data
+interfaces => user, task
+auth 
+directives
+pipes
