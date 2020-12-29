@@ -4,10 +4,12 @@ import { Err404Component } from './pages/err404/err404.component';
 import { AddComponent } from './pages/tasks/add/add.component';
 import { EditComponent } from './pages/tasks/edit/edit.component';
 import { ShowComponent } from './pages/tasks/show/show.component';
+import { RegisterComponent } from './pages/user/register/register.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
+  {path:"register",component:RegisterComponent},
   {path:"allTasks",component:ShowComponent},
   {path:"editTask/:id",component:EditComponent},
   {path:"addTask",component:AddComponent},

@@ -16,6 +16,7 @@ router.post('/addUser', async(req, res) => {
         })
     }
     catch(e){
+        
         res.status(500).send({
             status:0,
             data:e,

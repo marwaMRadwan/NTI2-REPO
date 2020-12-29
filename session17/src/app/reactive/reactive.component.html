@@ -1,0 +1,8 @@
+<p>reactive works!</p>
+<form [formGroup]="myForm" (ngSubmit)="formHandel()">
+    <input type="text" formControlName="fname">
+    {{fname.errors.required}}
+    <input type="text" formControlName="lname">
+    <input type="text" formControlName="gender">
+<button type="submit">add</button>
+</form>

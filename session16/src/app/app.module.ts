@@ -13,6 +13,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { TaskFormComponent } from './shared/task-form/task-form.component';
 import { LoginFormComponent } from './shared/login-form/login-form.component';
 import { Err404Component } from './pages/err404/err404.component';
+import { RegisterComponent } from './pages/user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { Err404Component } from './pages/err404/err404.component';
     FooterComponent,
     TaskFormComponent,
     LoginFormComponent,
-    Err404Component
+    Err404Component,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

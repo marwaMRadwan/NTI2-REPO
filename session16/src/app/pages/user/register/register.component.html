@@ -1,0 +1,24 @@
+<section class="container">
+    <h2>Register</h2>
+    <!-- ,age,,pass,status, deadLine -->
+    <form #register="ngForm" (ngSubmit)="registerUser(register)">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" ngModel>
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" ngModel>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">age</label>
+            <input type="text" class="form-control" name="age" ngModel>
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="pass" ngModel>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+
+</section>

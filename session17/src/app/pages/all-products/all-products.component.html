@@ -1,0 +1,5 @@
+<p>all-products works!</p>
+    <div *ngFor="let product of allData" class="pro">
+        <img [src]="_pro.IMGURL + product.default_images">
+        <h3 routerLink="single/{{product.products_id}}">{{product.products_name}}</h3>
+    </div>
