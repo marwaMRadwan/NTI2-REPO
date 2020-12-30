@@ -17,9 +17,30 @@
             invalid email
         </div>
     </div>
-<br>
-<input name="password" type="password" [(ngModel)]="userModal.password">
-<br>
-<button>login</button>
+    <br>
+    <input 
+    name="password" 
+    required minlength="6"
+    type="password" 
+    [(ngModel)]="userModal.password"
+    #password = "ngModel"
+    [ngClass]=" { 'invalid-data' : (login.submitted && password.invalid) }"
+    >
+    <div *ngIf="login.submitted && password.invalid">
+        <div *ngIf="password.errors.required">
+            required password
+        </div>
+        <div *ngIf="password.errors.minlength">
+            must be more than 6
+        </div>
+    </div>
 
+    <br>
+    <button>login</button>
+<div *ngIf="(login.submitted&&loginflag); else logged">
+invalid data
+</div>
+<ng-template #logged>
+    logged in
+</ng-template>
 </form>
