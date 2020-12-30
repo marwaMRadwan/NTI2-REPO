@@ -1,0 +1,25 @@
+<h2>Login</h2>
+
+<form #login="ngForm" (ngSubmit)="login.form.valid && onLoginSubmit()">
+    <input 
+    name="email" 
+    email required 
+    placeholder="Email" 
+    [(ngModel)]="userModal.email"
+    #email="ngModel"
+    [ngClass]=" { 'invalid-data' : (login.submitted && email.invalid) }"
+    >
+    <div *ngIf="login.submitted && email.invalid">
+        <div *ngIf="email.errors.required">
+            required email
+        </div>
+        <div *ngIf="email.errors.email">
+            invalid email
+        </div>
+    </div>
+<br>
+<input name="password" type="password" [(ngModel)]="userModal.password">
+<br>
+<button>login</button>
+
+</form>
