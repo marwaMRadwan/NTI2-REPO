@@ -8,12 +8,14 @@ import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserService } from './services/user.service';
 import { UserInterceptor } from './user.interceptor';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginpageComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,6 @@ import { UserInterceptor } from './user.interceptor';
      provide:HTTP_INTERCEPTORS,
      useClass:UserInterceptor,
      multi:true
-
     }
   ],
   bootstrap: [AppComponent]
