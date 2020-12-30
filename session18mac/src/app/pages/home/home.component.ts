@@ -20,5 +20,12 @@ allCoupons:any
 
   ngOnInit(): void {
   }
+  logout(){
+    this._user.logOut().subscribe(data=>{},
+      ()=>{},
+      ()=>{
+        localStorage.removeItem('token')
+      })
+  }
 
 }

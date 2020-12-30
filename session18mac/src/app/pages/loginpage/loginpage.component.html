@@ -10,10 +10,10 @@
     [ngClass]=" { 'invalid-data' : (login.submitted && email.invalid) }"
     >
     <div *ngIf="login.submitted && email.invalid">
-        <div *ngIf="email.errors.required">
+        <div *ngIf="email.errors?.required">
             required email
         </div>
-        <div *ngIf="email.errors.email">
+        <div *ngIf="email.errors?.email">
             invalid email
         </div>
     </div>
@@ -27,10 +27,10 @@
     [ngClass]=" { 'invalid-data' : (login.submitted && password.invalid) }"
     >
     <div *ngIf="login.submitted && password.invalid">
-        <div *ngIf="password.errors.required">
+        <div *ngIf="password.errors?.required">
             required password
         </div>
-        <div *ngIf="password.errors.minlength">
+        <div *ngIf="password.errors?.minlength">
             must be more than 6
         </div>
     </div>

@@ -1,0 +1,28 @@
+role => access[
+    role:{
+        home, home/login, x, y
+    }
+]
+
+user type: 1,2,.....
+
+
+getRole=> role type  => routes
+
+navbar menu => ngfor routes
+
+
+routes => x[
+    home, about
+]
+user type :{
+    ty=>0,
+    routes=>[x,y,z]
+},
+{ty:2 , routes=>x,y}
+
+
+workid
+
+*ngfor="ser of services, let i=index>
+(click)="x(i, work)>list ser.id

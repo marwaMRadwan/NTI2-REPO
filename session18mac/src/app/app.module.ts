@@ -9,13 +9,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserService } from './services/user.service';
 import { UserInterceptor } from './user.interceptor';
 import { RegisterComponent } from './pages/register/register.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginpageComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
