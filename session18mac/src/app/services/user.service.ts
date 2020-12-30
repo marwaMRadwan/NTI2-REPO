@@ -31,4 +31,10 @@ lang: string ='en'
    logOut():Observable<any>{
     return this._http.get(`${this.defaultURL}/auth/logout_api`)
    }
+   couponOfTheDay():Observable<any>{
+     return this._http.get(`${this.defaultURL}/CopounOfTheDayApi`)
+   }
+   myCart():Observable<any>{
+     return this._http.post(`${this.defaultURL}/MyCart`,{lang_id:1})
+   }
 }
