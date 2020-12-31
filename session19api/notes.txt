@@ -1,0 +1,25 @@
+users:
+name
+age
+email
+password
+image
+type => 0:admin,1: user
+gender => 0: male, 1:female
+---------------------------------------------------------------
+roles:
+type => admin - user
+function => add, edit, delete, show data, show my data
+model => user , tasks
+---------------------------------------------------------------
+tasks:
+task title
+task parts [ part{ name, deadline} ]
+details
+status
+rate
+--------------------------------------------------------------- 
+paggination
+sort
+
+wish=> id product, id
