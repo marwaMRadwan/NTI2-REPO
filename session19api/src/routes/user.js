@@ -91,4 +91,43 @@ router.get('/users/me', auth, async(req,res) =>{
     })
 })
 
+router.delete('/users/me', auth, async(req,res)=>{
+    try{
+        await req.user.remove()
+        res.status(200).send({
+            status:1,
+            message:'account removed'
+        })
+    }
+    catch(e){
+        res.send({
+            status:0,
+            message:'error removing'
+        })
+    }
+})
+
+router.patch('/users/me', auth, async(req, res)=>{
+    const updates = Objects.keys(req.body)
+    const allowed = ['name', 'age', 'password','gender']
+    const isValid = updates.every(update => allowed.includes(update))
+    try{
+        if(!isValid) throw new Error('')
+        updates.forEach( update => req.user[update] = req.body[update] )
+        await req.user.save()
+        res.send({
+            status:1,
+            data: req.user,
+            message:"user updated"
+        })
+    }
+    catch(e){
+        res.send({
+            status:0,
+            data: e,
+            message:"error update user data"
+        })
+    }
+})
+
 module.exports= router
