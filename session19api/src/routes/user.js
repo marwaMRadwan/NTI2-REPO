@@ -2,6 +2,7 @@ const express = require('express')
 const User = require('../models/user')
 const router = new express.Router()
 const auth = require('../midllware/auth')
+const multer = require('multer')
 router.post('/users', async (req,res)=>{
     const user = new User(req.body)
     try{
@@ -129,5 +130,24 @@ router.patch('/users/me', auth, async(req, res)=>{
         })
     }
 })
+let uniqueSuffix
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'images2')
+    },
+    filename: function (req, file, cb) {
+    uniqueSuffix = Date.now() + file.originalname.match(/\.(jpg|png)$/)[0]
+      cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+  })
+  
+  var upload = multer({ storage: storage })    
+router.post('/me/uploadImg',auth , upload.single('upload'), async(req,res)=>{
+    //req.user.pimg = req.file.buffer
+    req.user.pimg = `images2/${uniqueSuffix}`
+    await req.user.save()
+    res.send(req.user)
+})
+
 
 module.exports= router
