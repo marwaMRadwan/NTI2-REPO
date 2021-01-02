@@ -1,0 +1,9 @@
+<!-- <p>upload works!</p>
+<form #uploadData="ngForm" (ngSubmit)="handelSubmit()">
+    <input type="file"  (change)="imageUpload($event)">
+    <button>upload</button>
+</form> -->
+
+
+<input type="file" (change)="imageUpload($event)" #image>
+<button (click)="handelSubmit()">upload</button>
